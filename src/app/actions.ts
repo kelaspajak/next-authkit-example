@@ -31,7 +31,7 @@ export async function getAuthorizationUrl() {
   return authorizationUrl;
 }
 
-export async function logOut() {
+export async function signOut() {
   cookies().delete("token");
   redirect("/");
 }

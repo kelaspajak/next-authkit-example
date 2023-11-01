@@ -1,29 +1,25 @@
 import { Avatar, Button, Flex } from "@radix-ui/themes";
-import { getAuthorizationUrl, getUser, logOut } from "../actions";
+import { getAuthorizationUrl, getUser, signOut } from "../actions";
 
-export async function SignInButton() {
-  const { isAuthenticated, user } = await getUser();
+export async function SignInButton({ primary }: { primary?: boolean }) {
+  const { isAuthenticated } = await getUser();
   const authorizationUrl = await getAuthorizationUrl();
 
-  if (isAuthenticated && user) {
-    const { firstName, lastName, email } = user;
-
-    const avatarText =
-      firstName && lastName ? `${firstName[0]}${lastName[0]}` : email[0];
-
+  if (isAuthenticated) {
     return (
       <Flex gap="3">
-        <form action={logOut}>
-          <Button type="submit">Sign Out</Button>
+        <form action={signOut}>
+          <Button type="submit" size={primary ? "3" : "2"}>
+            Sign Out
+          </Button>
         </form>
-        <Avatar fallback={avatarText} size="2" />
       </Flex>
     );
   }
 
   return (
-    <Button asChild>
-      <a href={authorizationUrl}>Sign In</a>
+    <Button asChild size={primary ? "3" : "2"}>
+      <a href={authorizationUrl}>Sign In {primary && "with AuthKit"}</a>
     </Button>
   );
 }
