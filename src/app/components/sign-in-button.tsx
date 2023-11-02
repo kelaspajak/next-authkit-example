@@ -5,7 +5,7 @@ import {
 } from "../../auth";
 import { Button, Flex } from "@radix-ui/themes";
 
-export async function SignInButton({ primary }: { primary?: boolean }) {
+export async function SignInButton({ large }: { large?: boolean }) {
   const { isAuthenticated } = await getUser();
   const authorizationUrl = await getAuthorizationUrl();
 
@@ -18,7 +18,7 @@ export async function SignInButton({ primary }: { primary?: boolean }) {
             await clearSessionAndRedirect();
           }}
         >
-          <Button type="submit" size={primary ? "3" : "2"}>
+          <Button type="submit" size={large ? "3" : "2"}>
             Sign Out
           </Button>
         </form>
@@ -27,8 +27,8 @@ export async function SignInButton({ primary }: { primary?: boolean }) {
   }
 
   return (
-    <Button asChild size={primary ? "3" : "2"}>
-      <a href={authorizationUrl}>Sign In {primary && "with AuthKit"}</a>
+    <Button asChild size={large ? "3" : "2"}>
+      <a href={authorizationUrl}>Sign In {large && "with AuthKit"}</a>
     </Button>
   );
 }

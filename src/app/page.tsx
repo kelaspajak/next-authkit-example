@@ -20,7 +20,7 @@ export default async function Home() {
             <Button asChild size="3" variant="soft">
               <NextLink href="/account">View account</NextLink>
             </Button>
-            <SignInButton primary />
+            <SignInButton large />
           </Flex>
         </>
       ) : (
@@ -29,7 +29,7 @@ export default async function Home() {
           <Text size="5" color="gray" mb="4">
             Sign in to view your account details
           </Text>
-          <SignInButton primary />
+          <SignInButton large />
         </>
       )}
     </Flex>
