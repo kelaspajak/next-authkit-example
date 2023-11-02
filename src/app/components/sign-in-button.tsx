@@ -1,4 +1,8 @@
-import { clearSession, getAuthorizationUrl, getUser } from "../../libs/auth";
+import {
+  clearSessionAndRedirect,
+  getAuthorizationUrl,
+  getUser,
+} from "../../auth";
 import { Button, Flex } from "@radix-ui/themes";
 
 export async function SignInButton({ primary }: { primary?: boolean }) {
@@ -11,7 +15,7 @@ export async function SignInButton({ primary }: { primary?: boolean }) {
         <form
           action={async () => {
             "use server";
-            await clearSession();
+            await clearSessionAndRedirect();
           }}
         >
           <Button type="submit" size={primary ? "3" : "2"}>

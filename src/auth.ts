@@ -3,8 +3,6 @@ import { redirect } from "next/navigation";
 import WorkOS, { User } from "@workos-inc/node";
 import { jwtVerify } from "jose";
 
-export type WorkOSUser = User;
-
 // Initialize the WorkOS client
 export const workos = new WorkOS(process.env.WORKOS_API_KEY);
 
@@ -30,7 +28,7 @@ export async function verifyJwtToken(token: string) {
 
 export async function getUser(): Promise<{
   isAuthenticated: boolean;
-  user?: WorkOSUser | null;
+  user?: User | null;
 }> {
   const token = cookies().get("token")?.value;
   const verifiedToken = token && (await verifyJwtToken(token));
@@ -38,7 +36,7 @@ export async function getUser(): Promise<{
   if (verifiedToken) {
     return {
       isAuthenticated: true,
-      user: verifiedToken.user as WorkOSUser | null,
+      user: verifiedToken.user as User | null,
     };
   }
 
@@ -59,7 +57,7 @@ export async function getAuthorizationUrl(state?: string) {
   return authorizationUrl;
 }
 
-export async function clearSession() {
+export async function clearSessionAndRedirect() {
   cookies().delete("token");
   redirect("/");
 }
