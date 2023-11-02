@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
 
       // Create a JWT token with the user's information
       const token = await new SignJWT({
-        // Here you might lookup and retrieve user details from a database
+        // Here you might lookup and retrieve user details from your database
         user,
       })
         .setProtectedHeader({ alg: "HS256" })
