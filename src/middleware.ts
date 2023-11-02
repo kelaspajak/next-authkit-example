@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { verifyJwtToken } from "@/libs/auth";
-import { getAuthorizationUrl } from "./app/actions";
+import { getAuthorizationUrl, verifyJwtToken } from "./libs/auth";
 
 export async function middleware(request: NextRequest) {
   const { url, cookies } = request;

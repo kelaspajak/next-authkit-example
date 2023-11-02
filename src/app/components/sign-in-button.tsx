@@ -1,5 +1,5 @@
+import { clearSession, getAuthorizationUrl, getUser } from "../../libs/auth";
 import { Button, Flex } from "@radix-ui/themes";
-import { getAuthorizationUrl, getUser, signOut } from "../actions";
 
 export async function SignInButton({ primary }: { primary?: boolean }) {
   const { isAuthenticated } = await getUser();
@@ -8,7 +8,12 @@ export async function SignInButton({ primary }: { primary?: boolean }) {
   if (isAuthenticated) {
     return (
       <Flex gap="3">
-        <form action={signOut}>
+        <form
+          action={async () => {
+            "use server";
+            await clearSession();
+          }}
+        >
           <Button type="submit" size={primary ? "3" : "2"}>
             Sign Out
           </Button>

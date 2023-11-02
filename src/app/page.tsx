@@ -1,7 +1,7 @@
-import { getAuthorizationUrl, getUser } from "./actions";
 import { Button, Flex, Heading, Text } from "@radix-ui/themes";
 import NextLink from "next/link";
 import { SignInButton } from "./components/sign-in-button";
+import { getUser } from "../libs/auth";
 
 export default async function Home() {
   const { isAuthenticated, user } = await getUser();
