@@ -24,12 +24,15 @@ export async function GET(request: NextRequest) {
         .sign(getJwtSecretKey());
 
       const url = request.nextUrl.clone();
+      const state = url.searchParams.get("state");
+      const path = state ? new URL(state).pathname : "/";
 
-      // Cleanup params from redirect
+      // Cleanup params
       url.searchParams.delete("code");
-      url.pathname = "/";
+      url.searchParams.delete("search");
 
-      // Redirect to home page and store the session cookie
+      // Redirect to the requested path and store the session
+      url.pathname = path;
       const response = NextResponse.redirect(url);
 
       response.cookies.set({
@@ -41,9 +44,11 @@ export async function GET(request: NextRequest) {
 
       return response;
     } catch (error) {
-      return NextResponse.json({ success: false });
+      return NextResponse.json(error);
     }
   }
 
-  return NextResponse.json({ success: false });
+  return NextResponse.json({
+    error: "No authorization code was received from AuthKit",
+  });
 }

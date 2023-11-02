@@ -21,11 +21,15 @@ export async function getUser(): Promise<{
   return { isAuthenticated: false };
 }
 
-export async function getAuthorizationUrl() {
+export async function getAuthorizationUrl(state?: string) {
   const authorizationUrl = workos.sso.getAuthorizationURL({
     provider: "authkit",
     clientID: process.env.WORKOS_CLIENT_ID || "",
     redirectURI: process.env.WORKOS_REDIRECT_URI || "",
+    // We can pass arbitrary state which AuthKit will forward to the specified redirectURI
+    // This is helpful for passing the requested route and redirecting the user
+    // after they return from the AuthKit authentication flow
+    state: state || undefined,
   });
 
   return authorizationUrl;

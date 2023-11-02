@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { verifyJwtToken } from "@/libs/auth";
+import { getAuthorizationUrl } from "./app/actions";
 
 export async function middleware(request: NextRequest) {
   const { url, cookies } = request;
@@ -8,10 +9,9 @@ export async function middleware(request: NextRequest) {
   const hasVerifiedToken = token && (await verifyJwtToken(token));
 
   if (!hasVerifiedToken) {
-    // Alternatively you may wish to redirect to the AuthKit login page
-    // const authorizationUrl = await getAuthorizationUrl();
-    // const response = NextResponse.redirect(authorizationUrl);
-    const response = NextResponse.redirect(new URL(`/unauthorized`, url));
+    // Pass the requested route as a state param to AuthKit and redirect the user on sign in
+    const authorizationUrl = await getAuthorizationUrl(url);
+    const response = NextResponse.redirect(authorizationUrl);
 
     response.cookies.delete("token");
 

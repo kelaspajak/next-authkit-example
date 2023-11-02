@@ -1,4 +1,4 @@
-import { Avatar, Button, Flex } from "@radix-ui/themes";
+import { Button, Flex } from "@radix-ui/themes";
 import { getAuthorizationUrl, getUser, signOut } from "../actions";
 
 export async function SignInButton({ primary }: { primary?: boolean }) {

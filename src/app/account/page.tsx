@@ -1,7 +1,7 @@
 import { Text, Heading, TextFieldInput, Flex, Box } from "@radix-ui/themes";
 import { getUser } from "../actions";
 
-export default async function ProtectedPage() {
+export default async function Account() {
   const { user } = await getUser();
 
   const userFields = user && [
