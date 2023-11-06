@@ -47,7 +47,8 @@ export async function getAuthorizationUrl(state?: string) {
   const authorizationUrl = workos.sso.getAuthorizationURL({
     provider: "authkit",
     clientID: process.env.WORKOS_CLIENT_ID || "",
-    redirectURI: process.env.WORKOS_REDIRECT_URI || "",
+    // The endpoint that WorkOS will redirect to after a user authenticates
+    redirectURI: "http://localhost:3000/api/callback",
     // We can pass arbitrary state which AuthKit will forward to the specified redirectURI
     // This is helpful for passing the requested route and redirecting the user
     // after they return from the AuthKit authentication flow
