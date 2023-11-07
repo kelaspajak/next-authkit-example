@@ -6,6 +6,27 @@ import { jwtVerify } from "jose";
 // Initialize the WorkOS client
 export const workos = new WorkOS(process.env.WORKOS_API_KEY);
 
+export function getClientId() {
+  const clientId = process.env.WORKOS_CLIENT_ID;
+
+  if (!clientId) {
+    throw new Error("WORKOS_CLIENT_ID is not set");
+  }
+
+  return clientId;
+}
+
+export async function getAuthorizationUrl() {
+  const authorizationUrl = workos.sso.getAuthorizationURL({
+    provider: "authkit",
+    clientID: getClientId(),
+    // The endpoint that WorkOS will redirect to after a user authenticates
+    redirectURI: "http://localhost:3000/api/callback",
+  });
+
+  return authorizationUrl;
+}
+
 export function getJwtSecretKey() {
   const secret = process.env.JWT_SECRET_KEY;
 
@@ -13,7 +34,7 @@ export function getJwtSecretKey() {
     throw new Error("JWT_SECRET_KEY is not set");
   }
 
-  return new TextEncoder().encode(process.env.JWT_SECRET_KEY);
+  return new TextEncoder().encode(secret);
 }
 
 export async function verifyJwtToken(token: string) {
@@ -41,21 +62,6 @@ export async function getUser(): Promise<{
   }
 
   return { isAuthenticated: false };
-}
-
-export async function getAuthorizationUrl(state?: string) {
-  const authorizationUrl = workos.sso.getAuthorizationURL({
-    provider: "authkit",
-    clientID: process.env.WORKOS_CLIENT_ID || "",
-    // The endpoint that WorkOS will redirect to after a user authenticates
-    redirectURI: "http://localhost:3000/api/callback",
-    // We can pass arbitrary state which AuthKit will forward to the specified redirectURI
-    // This is helpful for passing the requested route and redirecting the user
-    // after they return from the AuthKit authentication flow
-    state,
-  });
-
-  return authorizationUrl;
 }
 
 export async function clearSessionAndRedirect() {

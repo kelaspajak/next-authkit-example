@@ -3,7 +3,7 @@ import NextLink from "next/link";
 import { SignInButton } from "./components/sign-in-button";
 import { getUser } from "../auth";
 
-export default async function Home() {
+export default async function HomePage() {
   const { isAuthenticated, user } = await getUser();
 
   return (

@@ -1,7 +1,8 @@
+// Import the base CSS styles for the radix-ui components.
 import "@radix-ui/themes/styles.css";
 
 import type { Metadata } from "next";
-import { Theme, Card, Container, Flex, Box, Button } from "@radix-ui/themes";
+import { Theme, Card, Container, Flex, Button } from "@radix-ui/themes";
 import NextLink from "next/link";
 import { Footer } from "./components/footer";
 import { SignInButton } from "./components/sign-in-button";

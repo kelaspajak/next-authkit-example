@@ -1,7 +1,7 @@
 import { getUser } from "../../auth";
 import { Text, Heading, TextFieldInput, Flex, Box } from "@radix-ui/themes";
 
-export default async function Account() {
+export default async function AccountPage() {
   const { user } = await getUser();
 
   const userFields = user && [
@@ -37,7 +37,7 @@ export default async function Account() {
                 </Text>
 
                 <Box grow="1">
-                  <TextFieldInput value={String(value)} readOnly />
+                  <TextFieldInput value={value || ""} readOnly />
                 </Box>
               </label>
             </Flex>
