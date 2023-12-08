@@ -44,7 +44,9 @@ export default function RootLayout({
                             </Button>
 
                             <Button asChild variant="soft">
-                              <NextLink href="/account">Account</NextLink>
+                              <NextLink href="/account" prefetch={false}>
+                                Account
+                              </NextLink>
                             </Button>
                           </Flex>
 
