@@ -1,15 +1,8 @@
-import { getUser } from "../../auth";
+// import { getUser } from "../../auth";
 import { Text, Heading, TextFieldInput, Flex, Box } from "@radix-ui/themes";
 
 export default async function AccountPage() {
-  const { user } = await getUser();
 
-  const userFields = user && [
-    ["First name", user.firstName],
-    ["Last name", user.lastName],
-    ["Email", user.email],
-    ["Id", user.id],
-  ];
 
   return (
     <>
@@ -22,28 +15,26 @@ export default async function AccountPage() {
         </Text>
       </Flex>
 
-      {userFields && (
+      
         <Flex
           direction="column"
           gap="3"
           style={{ width: 400 }}
           justify="center"
         >
-          {userFields.map(([label, value]) => (
-            <Flex asChild align="center" gap="6" key={value}>
+          
+            <Flex asChild align="center" gap="6">
               <label>
                 <Text weight="bold" size="3" style={{ width: 100 }}>
-                  {label}
+                  less suumer
                 </Text>
 
                 <Box grow="1">
-                  <TextFieldInput value={value || ""} readOnly />
+                  <TextFieldInput value={"less"} readOnly />
                 </Box>
               </label>
             </Flex>
-          ))}
         </Flex>
-      )}
     </>
   );
 }

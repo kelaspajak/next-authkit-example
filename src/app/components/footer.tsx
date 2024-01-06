@@ -2,7 +2,7 @@ import { Card, Grid, Heading, Text } from "@radix-ui/themes";
 
 export async function Footer() {
   return (
-    <Grid columns={{ initial: "1", sm: "3" }} gap="5">
+    <Grid columns={{ initial: "1", sm: "3" }} gap="5" style={{marginBottom:"40px"}}>
       <Card size="4" asChild variant="classic">
         <a href="https://workos.com/docs" rel="noreferrer" target="_blank">
           <Heading size="4" mb="1">

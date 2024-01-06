@@ -16,6 +16,7 @@
     "@workos-inc/node": "^4.0.0",
     "eslint": "8.49.0",
     "eslint-config-next": "13.4.19",
+    "geist": "^1.2.0",
     "jose": "^4.14.6",
     "next": "^14.0.1",
     "react": "18.2.0",
