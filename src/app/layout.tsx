@@ -23,7 +23,6 @@ const inter = Inter({
   display: "swap",
 });
 
-const cx = (...classes) => classes.filter(Boolean).join(" ");
 export const metadata: Metadata = {
   title: "Example AuthKit Authenticated App",
   description: "Example Next.js application demonstrating how to use AuthKit.",
@@ -36,7 +35,7 @@ export default function RootLayout({
 }) {
   // <Theme appearance="dark" accentColor="amber"></Theme>
   return (
-    <html lang="en" className={cx("", inter.className, GeistMono.variable)}>
+    <html lang="en" className={(inter.className)}>
       <body style={{ padding: 0, margin: 0 }}>
         <Theme accentColor="red" style={{ backgroundColor: "var(--gray-1)" }}>
           <Container px="5">
