@@ -1,47 +1,64 @@
-import { Avatar, Box, Card, Flex, Heading, Inset, Strong, Text } from "@radix-ui/themes";
+import { Flex, Heading, Text } from "@radix-ui/themes";
+import type { Metadata } from "next";
 // import { SignInButton } from "./components/sign-in-button";
 // import { getUser } from "../auth";
+export const metadata: Metadata = {
+  title: "Pajak",
+  description: "Example Next.js application demonstrating how to use AuthKit.",
+};
 
 export default async function HomePage() {
   return (
-    <Flex direction="column" align="center" gap="2">
+    <>
+      <Flex align="center" direction="column" gap="3" py="9">
+        <Heading
+          align={{ initial: "left", md: "center" }}
+          as="h1"
+          size={{ initial: "8", sm: "9" }} // style={{fontSize: 'clamp(32px, 4vw, 48px)'}}
+          // color="crimson"
+        >
+          Merangkai Aspek Perpajakan melalui konsultasi
+        </Heading>
+        <Text
+          size="6"
+          align={{ initial: "left", md: "center" }}
+          // color="crimson"
+          highContrast
+        >
+          The goal of typography is to relate font size, line height, and line
+          width in a proportional way that maximizes beauty and makes reading
+          easier and more pleasant. The question is: What proportion
+        </Text>
+      </Flex>
+
       <>
-        <Heading size="8">AuthKit authentication example</Heading>
-        <Text size="5" color="gray" mb="4">
-          Sign in to view your account details
+        <Text as="p" mb="5" size="4">
+          The goal of typography is to relate font size, line height, and line
+          width in a proportional way that maximizes beauty and makes reading
+          easier and more pleasant. The question is: What proportion(s) will
+          give us the best results? The golden ratio is often observed in nature
+          where beauty and utility intersect; perhaps we can use this “divine”
+          proportion to enhance these attributes in our typography.
+        </Text>
+
+        <Text as="p" mb="5" size="3">
+          The goal of typography is to relate font size, line height, and line
+          width in a proportional way that maximizes beauty and makes reading
+          easier and more pleasant. The question is: What proportion(s) will
+          give us the best results? The golden ratio is often observed in nature
+          where beauty and utility intersect; perhaps we can use this “divine”
+          proportion to enhance these attributes in our typography.
+        </Text>
+
+        <Text as="p" size="2" color="gray">
+          The goal of typography is to relate font size, line height, and line
+          width in a proportional way that maximizes beauty and makes reading
+          easier and more pleasant. The question is: What proportion(s) will
+          give us the best results? The golden ratio is often observed in nature
+          where beauty and utility intersect; perhaps we can use this “divine”
+          proportion to enhance these attributes in our typography.
         </Text>
       </>
-
-      <Card asChild style={{ maxWidth: 350 }}>
-        <a href="#">
-          <Text as="div" size="2" weight="bold">
-            Quick start
-          </Text>
-          <Text as="div" color="gray" size="2">
-            Start building your next project in minutes
-          </Text>
-        </a>
-      </Card>
-
-      <Card size="2" style={{ maxWidth: 240 }}>
-  <Inset clip="padding-box" side="top" pb="current">
-    <img
-      src="https://images.unsplash.com/photo-1617050318658-a9a3175e34cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
-      alt="Bold typography"
-      style={{
-        display: 'block',
-        objectFit: 'cover',
-        width: '100%',
-        height: 140,
-        backgroundColor: 'var(--gray-5)',
-      }}
-    />
-  </Inset>
-  <Text as="p" size="3">
-    <Strong>Typography</Strong> is the art and technique of arranging type to
-    make written language legible, readable and appealing when displayed.
-  </Text>
-</Card>
-    </Flex>
+    </>
   );
 }

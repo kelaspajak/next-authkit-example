@@ -1,40 +1,19 @@
-import { Card, Grid, Heading, Text } from "@radix-ui/themes";
+import { Container, Flex, Separator, Text } from "@radix-ui/themes";
 
 export async function Footer() {
   return (
-    <Grid columns={{ initial: "1", sm: "3" }} gap="5" style={{marginBottom:"40px"}}>
-      <Card size="4" asChild variant="classic">
-        <a href="https://workos.com/docs" rel="noreferrer" target="_blank">
-          <Heading size="4" mb="1">
-            Documentation
-          </Heading>
-          <Text color="gray">
-            View integration guides and SDK documentation.
-          </Text>
-        </a>
-      </Card>
-      <Card size="4" asChild variant="classic">
-        <a
-          href="https://workos.com/docs/reference"
-          rel="noreferrer"
-          target="_blank"
-        >
-          <Heading size="4" mb="1">
-            API Reference
-          </Heading>
-          <Text color="gray">
-            Every WorkOS API method and endpoint documented.
-          </Text>
-        </a>
-      </Card>
-      <Card size="4" asChild variant="classic">
-        <a href="https://workos.com" rel="noreferrer" target="_blank">
-          <Heading size="4" mb="1">
-            WorkOS
-          </Heading>
-          <Text color="gray">Learn more about other WorkOS products.</Text>
-        </a>
-      </Card>
-    </Grid>
+      <Container px="5" py="9" height="9" mt="9" style={{ backgroundColor: "var(--mauve-a3)" }}>
+        <Text size="1">
+          <Flex gap="3" align="center" color="gray">
+            Themes
+            <Separator orientation="vertical" />
+            Primitives
+            <Separator orientation="vertical" />
+            Icons
+            <Separator orientation="vertical" />
+            Colors
+          </Flex>
+        </Text>
+      </Container>
   );
 }
