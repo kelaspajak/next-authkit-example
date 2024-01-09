@@ -16,12 +16,17 @@ import {
 import { Footer } from "./components/footer";
 import { Inter } from "next/font/google";
 import { Header } from "./components/Header";
+import ThemeToggle from "./components/ThemeToogle";
+import { ThemeProvider } from "./components/ThemeProvider";
 
 // If loading a variable font, you don't need to specify the font weight
 const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
 });
+
+
 
 export const metadata: Metadata = {
   title: "Example AuthKit Authenticated App",
@@ -35,30 +40,29 @@ export default function RootLayout({
 }) {
   // <Theme appearance="dark" accentColor="amber"></Theme>
   return (
-    <html lang="en" className={(inter.className)}>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <body style={{ padding: 0, margin: 0 }}>
-        <Theme accentColor="red" style={{ backgroundColor: "var(--gray-1)" }}>
+      <ThemeProvider attribute="class">
+        <Theme
+          accentColor="blue"
+        >
           <Container px="5">
-            <Flex
-              direction="column"
-              style={{
-                height: "100%",
-                minHeight: 500,
-                width: "100%",
-              }}
-              gap="5"
-            >
-              <Header />
-
-              <Flex mx="auto" direction="column" gap="4" style={{
-                width: "100%",
-              }}>
-                  <main>{children}</main>
-              </Flex>
-              
-            </Flex>
-          </Container><Footer />
+            <Header />
+            
+          </Container>
+          <Flex
+            mx="auto"
+            direction="column"
+            gap="4"
+            style={{
+              width: "100%",
+            }}
+          >
+            <main>{children}</main>
+          </Flex>
+          <Footer />
         </Theme>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -18,6 +18,11 @@
   --code-padding-bottom: 0.075em;
   --default-leading-trim-start: 0.42em;
   --default-leading-trim-end: 0.38em;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 600;
+
 
 
     --step--2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
@@ -29,4 +34,59 @@
     --step-4: clamp(2.3325rem, 2.0823rem + 1.2511vw, 3.0519rem);
     --step-5: clamp(2.7994rem, 2.4461rem + 1.7663vw, 3.815rem);
   
+}
+
+.gradient-text {
+    background: conic-gradient(var(--crimson-a9) 0 33%,var(--teal-a9) 0 55%,#1471bb 0 70%,#ff8b59 0 87%,#c569bc 0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-size: 50%;
+    color: transparent;
+    padding: .6rem 0;
+}
+
+.gradient-text01
+{
+  background: linear-gradient(90deg,#ffd741 19%,#ff4540 42%,#f26fff 63%,#9a53fa 80%);
+    background-clip: border-box;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: rgba(0,0,0,0);
+}
+
+/* Balance text wrapping on headings 
+    https://piccalil.li/blog/a-more-modern-css-reset/
+  */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
 }
