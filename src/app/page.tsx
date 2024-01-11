@@ -328,17 +328,31 @@ function Panel() {
             mb={{ initial: "5", sm: "0" }}
             className={styles.IconsPanelSectionContent}
           >
-            <Heading as="h3" size="5" mb="6">
-              React components
+            <Heading
+              mt={{ initial: "5", sm: "0" }}
+              align="center"
+              as="h3"
+              mb="3"
+              size="4"
+            >
+              Apakah anda rutin menerima?
             </Heading>
 
-            <Flex direction="column" gap="3">
-              {[{ name: "SP2DK" }, { name: "Surat Teguran " }].map((color) => (
-                <Heading as="h3" size="6"  key={color.name}>
+            <Flex align="center" direction="column" gap="0">
+              {[
+                { name: "SP2DK" },
+                { name: "Surat Teguran " },
+                { name: "Pemeriksaan Pajak" },
+                { name: "Surat Tagihan Pajak" },
+              ].map((color) => (
+                <Heading as="h3" size="7" key={color.name}>
                   {color.name}
                 </Heading>
               ))}
             </Flex>
+            <Text as="p" size="2" align="center" mt="4" weight="light">
+              Mungkin ada kesalahan di sistem perpajakan Anda yang terdeteksi terus menerus di kantor pajak. <Text as="span" weight="medium">Mari kita perbaiki.</Text>
+            </Text>
           </Box>
 
           {/* <Box style={{ gridColumn: '3 / 5' }}>
