@@ -16,7 +16,7 @@ import type { Metadata } from "next";
 // import { SignInButton } from "./components/sign-in-button";
 // import { getUser } from "../auth";
 export const metadata: Metadata = {
-  title: "Pajak",
+  title: "Pajak365 at work | Less Summer",
   description: "Example Next.js application demonstrating how to use AuthKit.",
 };
 
@@ -34,7 +34,10 @@ export default async function HomePage() {
                 size={{ initial: "7", sm: "8" }} // style={{fontSize: 'clamp(32px, 4vw, 48px)'}}
                 // color="crimson"
               >
-                Merangkai Aspek Perpajakan melalui konsultasi
+                Diskusi Pajak untuk{" "}
+                {/* <Text as="span" color="gray"> */}
+                  Perusahaan
+                {/* </Text> */}
               </Heading>
               <Text
                 size="5"
@@ -51,7 +54,7 @@ export default async function HomePage() {
       <>
         <Inset clip="padding-box">
           <img
-            src="https://images.unsplash.com/photo-1461218779480-bb61b6be1924?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src="https://images.unsplash.com/photo-1704928340939-8a46728a9840?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="halo"
             style={{
               display: "block",
@@ -68,17 +71,12 @@ export default async function HomePage() {
           <Container px="5" size="3">
             <Grid columns={{ initial: "1", xs: "2", sm: "3" }} gap="6">
               <Flex direction="column" gap="3">
-                <Text as="p">
-                  This is a <Strong>paragraph</Strong> element.
-                </Text>
-                <Text as="label">
-                  This is a <Strong>label</Strong> element.
-                </Text>
-                <Text as="div">
-                  This is a <Strong>div</Strong> element.
-                </Text>
-                <Text as="span">
-                  This is a <Strong>span</Strong> element.
+                <Heading mb="2" size="4">
+                  Jam Layanan
+                </Heading>
+                <Text as="p" size="2" weight="light">
+                  Dapatkan bantuan lewat telepon dan chatting, mengatur jadwal
+                  perbaikan, dan banyak lagi.
                 </Text>
               </Flex>
 
@@ -138,9 +136,7 @@ export default async function HomePage() {
                   How can we help you?
                 </Heading>
                 <Text size="2">
-                  Need help finding what’s right for you? Connect with a
-                  Specialist online. Or in a one-on-one session at an Apple
-                  Store.
+                Paket ini memberikan akses prioritas ke staf dukungan teknis senior Apple melalui telepon 12 jam sehari, 7 hari seminggu, 1 memungkinkan Anda mengelola sumber daya dengan lebih efisien, meningkatkan waktu respons, dan mengurangi biaya pelatihan. Paket tersebut memberikan cakupan satu tahun kepada dua kontak teknis yang ditunjuk oleh organisasi Anda.
                 </Text>
               </Flex>
             </Grid>
@@ -151,6 +147,71 @@ export default async function HomePage() {
       <>
         <Panel />
       </>
+
+      <>
+        <Flex align="center" direction="column" gap="3" py="9">
+          <Container size="3" px="5">
+            <Flex gap="3" direction="column" style={{ maxWidth: "50rem" }}>
+              <Heading
+                align={{ initial: "left", md: "center" }}
+                as="h1"
+                // className="gradient-text01"
+                size={{ initial: "7", sm: "8" }} // style={{fontSize: 'clamp(32px, 4vw, 48px)'}}
+                // color="crimson"
+              >
+                Membeli dengan Apple Card juga memberi Anda semua manfaat luar biasa ini.
+              </Heading>
+              <Grid mt="8" columns={{ initial: "1", xs: "2" }} gap="8">
+              <Flex direction="column" gap="3">
+                {(
+                  [
+                    {
+                      id: 1005,
+                      name: "Uang kembali Harian Tanpa Batas untuk setiap pembelian, termasuk 3% di Apple dan 2% saat Anda menggunakan Kartu Apple dengan Apple Pay.",
+                      hour: "10:00 a.m. - 8:00 p.m.",
+                    },
+                    {
+                      id: 1004,
+                      name: "Tanpa biaya. catatan kaki 5 Bahkan tidak ada yang tersembunyi.",
+                      hour: "10:00 a.m. - 8:00 p.m.",
+                    },
+                    {
+                      id: 1003,
+                      name: "Privasi dan keamanan yang Anda harapkan dari iPhone.",
+                      hour: "10:00 a.m. - 8:00 p.m.",
+                    },
+                    
+                  ] as const
+                ).map((order) => (<Heading mb="2" size="4" key={order.id}>
+                  {order.name}
+                </Heading>))}
+              </Flex>
+
+              <Flex direction="column" gap="3">
+              {(
+                  [
+                    {
+                      id: 1005,
+                      name: "Kartu titanium rancangan Apple yang dapat digunakan di mana pun Mastercard diterima.",
+                      hour: "10:00 a.m. - 8:00 p.m.",
+                    },
+                    {
+                      id: 1004,
+                      name: "Lihat apakah Anda disetujui tanpa memengaruhi skor kredit Anda. catatan kaki 6",
+                      hour: "10:00 a.m. - 8:00 p.m.",
+                    },
+                    
+                  ] as const
+                ).map((order) => (<Heading mb="2" size="4" key={order.id}>
+                  {order.name}
+                </Heading>))}
+              </Flex>
+              </Grid>
+            </Flex>
+          </Container>
+        </Flex>
+      </>
+
     </>
   );
 }
@@ -350,8 +411,8 @@ function Panel() {
                 </Heading>
               ))}
             </Flex>
-            <Text as="p" size="2" align="center" mt="4" weight="light">
-              Mungkin ada kesalahan di sistem perpajakan Anda yang terdeteksi terus menerus di kantor pajak. <Text as="span" weight="medium">Mari kita perbaiki.</Text>
+            <Text as="p" size="2" align="center" mt="4">
+              Mari kita perbaiki.
             </Text>
           </Box>
 
