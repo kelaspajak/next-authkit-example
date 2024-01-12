@@ -34,9 +34,8 @@ export default async function HomePage() {
                 size={{ initial: "7", sm: "8" }} // style={{fontSize: 'clamp(32px, 4vw, 48px)'}}
                 // color="crimson"
               >
-                Diskusi Pajak untuk{" "}
-                {/* <Text as="span" color="gray"> */}
-                  Perusahaan
+                Diskusi Pajak untuk {/* <Text as="span" color="gray"> */}
+                Perusahaan
                 {/* </Text> */}
               </Heading>
               <Text
@@ -136,7 +135,12 @@ export default async function HomePage() {
                   How can we help you?
                 </Heading>
                 <Text size="2">
-                Paket ini memberikan akses prioritas ke staf dukungan teknis senior Apple melalui telepon 12 jam sehari, 7 hari seminggu, 1 memungkinkan Anda mengelola sumber daya dengan lebih efisien, meningkatkan waktu respons, dan mengurangi biaya pelatihan. Paket tersebut memberikan cakupan satu tahun kepada dua kontak teknis yang ditunjuk oleh organisasi Anda.
+                  Paket ini memberikan akses prioritas ke staf dukungan teknis
+                  senior Apple melalui telepon 12 jam sehari, 7 hari seminggu, 1
+                  memungkinkan Anda mengelola sumber daya dengan lebih efisien,
+                  meningkatkan waktu respons, dan mengurangi biaya pelatihan.
+                  Paket tersebut memberikan cakupan satu tahun kepada dua kontak
+                  teknis yang ditunjuk oleh organisasi Anda.
                 </Text>
               </Flex>
             </Grid>
@@ -149,7 +153,7 @@ export default async function HomePage() {
       </>
 
       <>
-        <Flex align="center" direction="column" gap="3" py="9">
+        <Flex align="center" direction="column" gap="3" py="5">
           <Container size="3" px="5">
             <Flex gap="3" direction="column" style={{ maxWidth: "50rem" }}>
               <Heading
@@ -159,62 +163,58 @@ export default async function HomePage() {
                 size={{ initial: "7", sm: "8" }} // style={{fontSize: 'clamp(32px, 4vw, 48px)'}}
                 // color="crimson"
               >
-                Membeli dengan Apple Card juga memberi Anda semua manfaat luar biasa ini.
+                Membeli dengan Paket ini juga memberi Anda semua manfaat luar
+                biasa ini.
               </Heading>
-              <Grid mt="8" columns={{ initial: "1", xs: "2" }} gap="8">
-              {(
+              <Grid mt="8" columns={{ initial: "1", xs: "2" }} gap={{ initial: "2", xs: "8" }}>
+                {(
                   [
                     {
                       id: 1005,
                       hour: [
-                        { id: 1, name: "Uang kembali Harian Tanpa Batas untuk setiap pembelian, termasuk 3% di Apple dan 2% saat Anda menggunakan Kartu Apple dengan Apple Pay.", href: '#' },
-                        { id: 2, name: "Tanpa biaya. catatan kaki 5 Bahkan tidak ada yang tersembunyi.", href: '#' },
-                        { id: 3, name: "Privasi dan keamanan yang Anda harapkan dari iPhone.", href: '#' },
-                      ]
+                        {
+                          id: 1,
+                          name: "Uang kembali Harian Tanpa Batas untuk setiap pembelian, termasuk 3% di Apple dan 2% saat Anda menggunakan Kartu Apple dengan Apple Pay.",
+                        },
+                        {
+                          id: 2,
+                          name: "Tanpa biaya. catatan kaki 5 Bahkan tidak ada yang tersembunyi.",
+                        },
+                        {
+                          id: 3,
+                          name: "Privasi dan keamanan yang Anda harapkan dari iPhone.",
+                        },
+                      ],
                     },
                     {
                       id: 1004,
                       name: "Tanpa biaya. catatan kaki 5 Bahkan tidak ada yang tersembunyi.",
                       hour: [
-                        { id: 1, name: "Uang kembali Harian Tanpa Batas untuk setiap pembelian, termasuk 3% di Apple dan 2% saat Anda menggunakan Kartu Apple dengan Apple Pay.", href: '#' },
-                        { id: 2, name: "Tanpa biaya. catatan kaki 5 Bahkan tidak ada yang tersembunyi.", href: '#' },
-                        { id: 3, name: "Privasi dan keamanan yang Anda harapkan dari iPhone.", href: '#' },
-                      ]
+                        {
+                          id: 1,
+                          name: "An Apple-designed titanium card that can be used anywhere Mastercard is accepted.",
+                        },
+                        {
+                          id: 2,
+                          name: "See if you’re approved without impacting your credit score. footnote 6",
+                        },
+                      ],
                     },
-                    
                   ] as const
                 ).map((order) => (
-              <Flex direction="column" gap="3" key={order.id}>
-                {order.hour.map((hour) => (<Heading mb="2" size="4"  key={hour.id}>
-                  {hour.name}
-                </Heading>))}
-              </Flex>))}
-
-              {/* <Flex direction="column" gap="3">
-              {(
-                  [
-                    {
-                      id: 1005,
-                      name: "Kartu titanium rancangan Apple yang dapat digunakan di mana pun Mastercard diterima.",
-                      hour: "10:00 a.m. - 8:00 p.m.",
-                    },
-                    {
-                      id: 1004,
-                      name: "Lihat apakah Anda disetujui tanpa memengaruhi skor kredit Anda. catatan kaki 6",
-                      hour: "10:00 a.m. - 8:00 p.m.",
-                    },
-                    
-                  ] as const
-                ).map((order) => (<Heading mb="2" size="4" key={order.id}>
-                  {order.name}
-                </Heading>))}
-              </Flex> */}
+                  <Flex direction="column" gap="3" key={order.id}>
+                    {order.hour.map((hour) => (
+                      <Heading mb="2" size="4" key={hour.id}>
+                        {hour.name}
+                      </Heading>
+                    ))}
+                  </Flex>
+                ))}
               </Grid>
             </Flex>
           </Container>
         </Flex>
       </>
-
     </>
   );
 }
