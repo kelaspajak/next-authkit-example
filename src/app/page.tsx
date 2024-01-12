@@ -409,7 +409,7 @@ function Panel() {
                 { name: "Pemeriksaan Pajak" },
                 { name: "Surat Tagihan Pajak" },
               ].map((color) => (
-                <Heading as="h3" size="7" key={color.name}>
+                <Heading as="h3" size={{initial:"4", sm:"7"}} key={color.name}>
                   {color.name}
                 </Heading>
               ))}
