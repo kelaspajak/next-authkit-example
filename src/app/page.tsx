@@ -162,32 +162,35 @@ export default async function HomePage() {
                 Membeli dengan Apple Card juga memberi Anda semua manfaat luar biasa ini.
               </Heading>
               <Grid mt="8" columns={{ initial: "1", xs: "2" }} gap="8">
-              <Flex direction="column" gap="3">
-                {(
+              {(
                   [
                     {
                       id: 1005,
-                      name: "Uang kembali Harian Tanpa Batas untuk setiap pembelian, termasuk 3% di Apple dan 2% saat Anda menggunakan Kartu Apple dengan Apple Pay.",
-                      hour: "10:00 a.m. - 8:00 p.m.",
+                      hour: [
+                        { id: 1, name: "Uang kembali Harian Tanpa Batas untuk setiap pembelian, termasuk 3% di Apple dan 2% saat Anda menggunakan Kartu Apple dengan Apple Pay.", href: '#' },
+                        { id: 2, name: "Tanpa biaya. catatan kaki 5 Bahkan tidak ada yang tersembunyi.", href: '#' },
+                        { id: 3, name: "Privasi dan keamanan yang Anda harapkan dari iPhone.", href: '#' },
+                      ]
                     },
                     {
                       id: 1004,
                       name: "Tanpa biaya. catatan kaki 5 Bahkan tidak ada yang tersembunyi.",
-                      hour: "10:00 a.m. - 8:00 p.m.",
-                    },
-                    {
-                      id: 1003,
-                      name: "Privasi dan keamanan yang Anda harapkan dari iPhone.",
-                      hour: "10:00 a.m. - 8:00 p.m.",
+                      hour: [
+                        { id: 1, name: "Uang kembali Harian Tanpa Batas untuk setiap pembelian, termasuk 3% di Apple dan 2% saat Anda menggunakan Kartu Apple dengan Apple Pay.", href: '#' },
+                        { id: 2, name: "Tanpa biaya. catatan kaki 5 Bahkan tidak ada yang tersembunyi.", href: '#' },
+                        { id: 3, name: "Privasi dan keamanan yang Anda harapkan dari iPhone.", href: '#' },
+                      ]
                     },
                     
                   ] as const
-                ).map((order) => (<Heading mb="2" size="4" key={order.id}>
-                  {order.name}
+                ).map((order) => (
+              <Flex direction="column" gap="3" key={order.id}>
+                {order.hour.map((hour) => (<Heading mb="2" size="4"  key={hour.id}>
+                  {hour.name}
                 </Heading>))}
-              </Flex>
+              </Flex>))}
 
-              <Flex direction="column" gap="3">
+              {/* <Flex direction="column" gap="3">
               {(
                   [
                     {
@@ -205,7 +208,7 @@ export default async function HomePage() {
                 ).map((order) => (<Heading mb="2" size="4" key={order.id}>
                   {order.name}
                 </Heading>))}
-              </Flex>
+              </Flex> */}
               </Grid>
             </Flex>
           </Container>
