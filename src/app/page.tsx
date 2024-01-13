@@ -28,11 +28,11 @@ export default async function HomePage() {
           <Container px="5">
             <Flex gap="3" direction="column" style={{ maxWidth: "50rem" }}>
               <Heading
-                align={{ initial: "left", md: "center" }}
+                align={{ initial: "center", md: "center" }}
                 as="h1"
                 // className="gradient-text01"
-                // size={{ initial: "7", sm: "8" }} 
-                style={{fontSize: 'clamp(24px, 4vw, 36px)'}}
+                // size={{ initial: "7", sm: "8" }}
+                style={{ fontSize: "clamp(24px, 4vw, 36px)" }}
                 // color="crimson"
               >
                 Diskusi Pajak untuk {/* <Text as="span" color="gray"> */}
@@ -41,7 +41,7 @@ export default async function HomePage() {
               </Heading>
               <Text
                 size="5"
-                align={{ initial: "left", md: "center" }}
+                align={{ initial: "center", md: "center" }}
                 // style={{ color: "var(--gray-a11)" }}
               >
                 Buka setiap hari 08.00 - 17.00 WITA
@@ -89,32 +89,32 @@ export default async function HomePage() {
                     {
                       id: 1005,
                       day: "Senin",
-                      hour: "10:00 a.m. - 8:00 p.m.",
+                      hour: "07:30 a.m. - 8:00 p.m.",
                     },
                     {
                       id: 1004,
                       day: "Selasa",
-                      hour: "10:00 a.m. - 8:00 p.m.",
+                      hour: "07:30 a.m. - 8:00 p.m.",
                     },
                     {
                       id: 1003,
                       day: "Rabu",
-                      hour: "10:00 a.m. - 8:00 p.m.",
+                      hour: "07:30 a.m. - 8:00 p.m.",
                     },
                     {
                       id: 1002,
                       day: "Kamis",
-                      hour: "10:00 a.m. - 8:00 p.m.",
+                      hour: "07:30 a.m. - 8:00 p.m.",
                     },
                     {
                       id: 1001,
                       day: "Jum'at",
-                      hour: "10:00 a.m. - 8:00 p.m.",
+                      hour: "07:30 a.m. - 8:00 p.m.",
                     },
                     {
                       id: 1000,
                       day: "Sabtu",
-                      hour: "10:00 a.m. - 8:00 p.m.",
+                      hour: "07:30 a.m. - 8:00 p.m.",
                     },
                   ] as const
                 ).map((order) => (
@@ -200,7 +200,7 @@ function Panel() {
               Apakah anda rutin menerima?
             </Heading>
 
-            <Flex align="center" direction="column" gap="0">
+            <Flex align="center" direction="column" gap="0" wrap="wrap">
               {[
                 { name: "SP2DK" },
                 { name: "Surat Teguran " },

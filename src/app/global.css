@@ -56,8 +56,11 @@
 }
 
 /* Balance text wrapping on headings 
-    https://piccalil.li/blog/a-more-modern-css-reset/
+    https://piccalil.li/blog/a-more-modern-css-reset
   */
+* {
+  min-width: 0;
+}
 h1, h2,
 h3, h4 {
   text-wrap: balance;
