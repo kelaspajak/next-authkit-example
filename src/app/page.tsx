@@ -3,6 +3,7 @@ import styles from "./components/panel.module.css";
 import {
   Box,
   Card,
+  Checkbox,
   Container,
   Flex,
   Grid,
@@ -44,8 +45,11 @@ export default async function HomePage() {
                 align={{ initial: "center", md: "center" }}
                 // style={{ color: "var(--gray-a11)" }}
               >
-                Buka setiap hari 08.00 - 17.00 WITA
+                Diskusikan pajak Anda dengan ahli, tanpa perlu datang ke kantor
+                pajak.
               </Text>
+
+              {/* <Text>Buka setiap hari 07:30 am - 08:00 pm WITA</Text> */}
             </Flex>
           </Container>
         </Flex>
@@ -72,11 +76,10 @@ export default async function HomePage() {
             <Grid columns={{ initial: "1", xs: "2", sm: "3" }} gap="6">
               <Flex direction="column" gap="3">
                 <Heading mb="2" size="4">
-                  Jam Layanan
+                  Lokasi
                 </Heading>
                 <Text as="p" size="2" weight="light">
-                  Dapatkan bantuan lewat telepon dan chatting, mengatur jadwal
-                  perbaikan, dan banyak lagi.
+                  Online via telegram, email, Whatsapp, panggilan telepon.
                 </Text>
               </Flex>
 
@@ -133,16 +136,50 @@ export default async function HomePage() {
               </Flex>
               <Flex direction="column" gap="3">
                 <Heading mb="2" size="4">
-                  How can we help you?
+                  Bagaimana kami membantu anda?
                 </Heading>
                 <Text size="2">
-                  Paket ini memberikan akses prioritas ke staf dukungan teknis
-                  senior Apple melalui telepon 12 jam sehari, 7 hari seminggu, 1
-                  memungkinkan Anda mengelola sumber daya dengan lebih efisien,
-                  meningkatkan waktu respons, dan mengurangi biaya pelatihan.
-                  Paket tersebut memberikan cakupan satu tahun kepada dua kontak
-                  teknis yang ditunjuk oleh organisasi Anda.
+                  Paket ini memberikan akses prioritas ke kami melalui telepon,
+                  telegram, Whatsapp, Gmail, 12 jam sehari, 7 hari seminggu.
                 </Text>
+                <Text size="2">
+                  Diskusikan pajak anda, membantu anda untuk mengajukan
+                  permohonan pajak, membantu wajib pajak memperolah gambaran
+                  umum kewajiban pajak, mendeteksi transaksi yang dapat
+                  menimbulkan eksposure pajak maksimal, serta melakukan
+                  pencegahan dari risiko pajak yang lebih besar.
+                </Text>
+                <Text size="2">
+                  Memungkinkan Anda mengelola sumber daya dengan lebih efisien,
+                  lebih fokus pada bisnis Anda, dan mengurangi biaya pelatihan
+                  karyawan.
+                </Text>
+                {/* <ul>
+                  {[
+                    {
+                      id: 1004,
+                      name: "Meminimalkan kewajiban pajak mereka dalam kerangka peraturan yang ada.",
+                    },
+                    {
+                      id: 1005,
+                      name: "Melakukan pencegahan kelebihan pembayaran pajak.",
+                    },
+                    {
+                      id: 1006,
+                      name: "Menghindari risiko denda pajak terhadap kesalahan atau keterlambatan penyetoran pajak.",
+                    },
+                    {
+                      id: 1007,
+                      name: "Menghindari atau meminimalkan litigasi pajak yang berbiaya tinggi.",
+                    },
+                  ].map((fasilitas) => (
+                    <li key={fasilitas.id}>
+                      <Text size="2" ml="0">
+                        {fasilitas.name}
+                      </Text>
+                    </li>
+                  ))}
+                </ul> */}
               </Flex>
             </Grid>
           </Container>
@@ -159,7 +196,6 @@ export default async function HomePage() {
     </>
   );
 }
-
 
 function Panel() {
   return (
@@ -207,7 +243,11 @@ function Panel() {
                 { name: "Pemeriksaan Pajak" },
                 { name: "Surat Tagihan Pajak" },
               ].map((color) => (
-                <Heading as="h3" size={{initial:"4", sm:"7"}} key={color.name}>
+                <Heading
+                  as="h3"
+                  size={{ initial: "4", sm: "7" }}
+                  key={color.name}
+                >
                   {color.name}
                 </Heading>
               ))}
@@ -225,65 +265,68 @@ function Panel() {
 function Benefit() {
   return (
     <Flex align="center" direction="column" gap="3" py="5">
-          <Container size="3" px="5">
-            <Flex gap="3" direction="column" style={{ maxWidth: "50rem" }}>
-              <Heading
-                align={{ initial: "left", md: "center" }}
-                as="h1"
-                // className="gradient-text01"
-                size={{ initial: "7", sm: "8" }} // style={{fontSize: 'clamp(32px, 4vw, 48px)'}}
-                // color="crimson"
-              >
-                Membeli dengan Paket ini juga memberi Anda semua manfaat luar
-                biasa ini.
-              </Heading>
-              <Grid mt="8" columns={{ initial: "1", xs: "2" }} gap={{ initial: "2", xs: "8" }}>
-                {(
-                  [
+      <Container size="3" px="5">
+        <Flex gap="3" direction="column" style={{ maxWidth: "50rem" }}>
+          <Heading
+            align={{ initial: "left", md: "center" }}
+            as="h1"
+            // className="gradient-text01"
+            size={{ initial: "7", sm: "8" }} // style={{fontSize: 'clamp(32px, 4vw, 48px)'}}
+            // color="crimson"
+          >
+            Membeli paket ini memberi Anda semua manfaat luar biasa ini.
+          </Heading>
+          <Grid
+            mt="8"
+            columns={{ initial: "1", xs: "2" }}
+            gap={{ initial: "2", xs: "8" }}
+          >
+            {(
+              [
+                {
+                  id: 1005,
+                  hour: [
                     {
-                      id: 1005,
-                      hour: [
-                        {
-                          id: 1,
-                          name: "Uang kembali Harian Tanpa Batas untuk setiap pembelian, termasuk 3% di Apple dan 2% saat Anda menggunakan Kartu Apple dengan Apple Pay.",
-                        },
-                        {
-                          id: 2,
-                          name: "Tanpa biaya. catatan kaki 5 Bahkan tidak ada yang tersembunyi.",
-                        },
-                        {
-                          id: 3,
-                          name: "Privasi dan keamanan yang Anda harapkan dari iPhone.",
-                        },
-                      ],
+                      id: 1,
+                      name: "Diskusi Pajak khusus untuk perusahaan Anda.<sup>1</sup>",
                     },
                     {
-                      id: 1004,
+                      id: 2,
                       name: "Tanpa biaya. catatan kaki 5 Bahkan tidak ada yang tersembunyi.",
-                      hour: [
-                        {
-                          id: 1,
-                          name: "An Apple-designed titanium card that can be used anywhere Mastercard is accepted.",
-                        },
-                        {
-                          id: 2,
-                          name: "See if you’re approved without impacting your credit score. footnote 6",
-                        },
-                      ],
                     },
-                  ] as const
-                ).map((order) => (
-                  <Flex direction="column" gap="3" key={order.id}>
-                    {order.hour.map((hour) => (
-                      <Heading mb="2" size="4" key={hour.id}>
-                        {hour.name}
-                      </Heading>
-                    ))}
-                  </Flex>
+                    {
+                      id: 3,
+                      name: "Privasi dan keamanan yang Anda harapkan dari iPhone.",
+                    },
+                  ],
+                },
+                {
+                  id: 1004,
+                  name: "Tanpa biaya. catatan kaki 5 Bahkan tidak ada yang tersembunyi.",
+                  hour: [
+                    {
+                      id: 1,
+                      name: "An Apple-designed titanium card that can be used anywhere Mastercard is accepted.",
+                    },
+                    {
+                      id: 2,
+                      name: "See if you’re approved without impacting your credit score.",
+                    },
+                  ],
+                },
+              ] as const
+            ).map((order) => (
+              <Flex direction="column" gap="3" key={order.id}>
+                {order.hour.map((hour) => (
+                  <Heading mb="2" size="4" key={hour.id}>
+                    {hour.name}
+                  </Heading>
                 ))}
-              </Grid>
-            </Flex>
-          </Container>
+              </Flex>
+            ))}
+          </Grid>
         </Flex>
-  )
+      </Container>
+    </Flex>
+  );
 }
