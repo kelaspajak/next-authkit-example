@@ -22,7 +22,7 @@ export async function Header() {
           </Text>
         </Flex>
         <Box py="3">
-          {/* <ThemeToggle /> */}
+          <ThemeToggle />
         </Box>
       </header>
     </Flex>
