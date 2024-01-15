@@ -58,6 +58,9 @@
 /* Balance text wrapping on headings 
     https://piccalil.li/blog/a-more-modern-css-reset
   */
+
+  body {    -webkit-font-smoothing: antialiased;}
+
 * {
   min-width: 0;
 }
