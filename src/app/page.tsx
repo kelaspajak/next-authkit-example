@@ -2,17 +2,17 @@
 import styles from "./components/panel.module.css";
 import {
   Box,
+  Button,
   Card,
-  Checkbox,
   Container,
   Flex,
   Grid,
   Heading,
   Inset,
-  Strong,
   Text,
 } from "@radix-ui/themes";
 import type { Metadata } from "next";
+import { CheckIcon } from "@radix-ui/react-icons";
 
 // import { SignInButton } from "./components/sign-in-button";
 // import { getUser } from "../auth";
@@ -71,127 +71,21 @@ export default async function HomePage() {
       </>
 
       <>
-        <Flex align="center" direction="column" gap="3" py="6">
-          <Container px="5" size="3">
-            <Grid columns={{ initial: "1", xs: "2", sm: "3" }} gap="6">
-              <Flex direction="column" gap="3">
-                <Heading mb="2" size="4">
-                  Lokasi
-                </Heading>
-                <Text as="p" size="2" weight="light">
-                  Online via telegram, email, Whatsapp, panggilan telepon.
-                </Text>
-              </Flex>
-
-              <Flex direction="column" gap="3">
-                <Heading mb="2" size="4">
-                  Jam Layanan
-                </Heading>
-                {(
-                  [
-                    {
-                      id: 1005,
-                      day: "Senin",
-                      hour: "07:30 a.m. - 8:00 p.m.",
-                    },
-                    {
-                      id: 1004,
-                      day: "Selasa",
-                      hour: "07:30 a.m. - 8:00 p.m.",
-                    },
-                    {
-                      id: 1003,
-                      day: "Rabu",
-                      hour: "07:30 a.m. - 8:00 p.m.",
-                    },
-                    {
-                      id: 1002,
-                      day: "Kamis",
-                      hour: "07:30 a.m. - 8:00 p.m.",
-                    },
-                    {
-                      id: 1001,
-                      day: "Jum'at",
-                      hour: "07:30 a.m. - 8:00 p.m.",
-                    },
-                    {
-                      id: 1000,
-                      day: "Sabtu",
-                      hour: "07:30 a.m. - 8:00 p.m.",
-                    },
-                  ] as const
-                ).map((order) => (
-                  <Grid columns="3" key={order.id}>
-                    <Box>
-                      <Text size="2">{order.day}</Text>
-                    </Box>
-
-                    <Box style={{ gridColumn: "2 / -1" }}>
-                      <Text size="2" align="right">
-                        {order.hour}
-                      </Text>
-                    </Box>
-                  </Grid>
-                ))}
-              </Flex>
-              <Flex direction="column" gap="3">
-                <Heading mb="2" size="4">
-                  Bagaimana kami membantu anda?
-                </Heading>
-                <Text size="2">
-                  Paket ini memberikan akses prioritas ke kami melalui telepon,
-                  telegram, Whatsapp, Gmail, 12 jam sehari, 7 hari seminggu.
-                </Text>
-                <Text size="2">
-                  Diskusikan pajak anda, membantu anda untuk mengajukan
-                  permohonan pajak, membantu wajib pajak memperolah gambaran
-                  umum kewajiban pajak, mendeteksi transaksi yang dapat
-                  menimbulkan eksposure pajak maksimal, serta melakukan
-                  pencegahan dari risiko pajak yang lebih besar.
-                </Text>
-                <Text size="2">
-                  Memungkinkan Anda mengelola sumber daya dengan lebih efisien,
-                  lebih fokus pada bisnis Anda, dan mengurangi biaya pelatihan
-                  karyawan.
-                </Text>
-                {/* <ul>
-                  {[
-                    {
-                      id: 1004,
-                      name: "Meminimalkan kewajiban pajak mereka dalam kerangka peraturan yang ada.",
-                    },
-                    {
-                      id: 1005,
-                      name: "Melakukan pencegahan kelebihan pembayaran pajak.",
-                    },
-                    {
-                      id: 1006,
-                      name: "Menghindari risiko denda pajak terhadap kesalahan atau keterlambatan penyetoran pajak.",
-                    },
-                    {
-                      id: 1007,
-                      name: "Menghindari atau meminimalkan litigasi pajak yang berbiaya tinggi.",
-                    },
-                  ].map((fasilitas) => (
-                    <li key={fasilitas.id}>
-                      <Text size="2" ml="0">
-                        {fasilitas.name}
-                      </Text>
-                    </li>
-                  ))}
-                </ul> */}
-              </Flex>
-            </Grid>
-          </Container>
-        </Flex>
+        <Row01 />
       </>
 
       <>
         <Panel />
       </>
-
+      <>
+        <Row02 />
+      </>
       <>
         <Benefit />
+      </>
+
+      <>
+        <Pricing />
       </>
     </>
   );
@@ -252,9 +146,9 @@ function Panel() {
                 </Heading>
               ))}
             </Flex>
-            <Text as="p" size="2" align="center" mt="4">
+            {/* <Text as="p" size="2" align="center" mt="4">
               Mari kita perbaiki.
-            </Text>
+            </Text> */}
           </Box>
         </Box>
       </Card>
@@ -288,7 +182,7 @@ function Benefit() {
                   hour: [
                     {
                       id: 1,
-                      name: "Diskusi Pajak khusus untuk perusahaan Anda.<sup>1</sup>",
+                      name: "Diskusi Pajak khusus untuk perusahaan Anda.",
                     },
                     {
                       id: 2,
@@ -330,3 +224,251 @@ function Benefit() {
     </Flex>
   );
 }
+
+function Row01() {
+  return (
+    <Flex align="center" direction="column" gap="3" py="6">
+      <Container px="5" size="3">
+        <Grid columns={{ initial: "1", xs: "2", sm: "3" }} gap="6">
+          <Flex direction="column" gap="3">
+            <Heading mb="2" size="4">
+              Lokasi
+            </Heading>
+            <Text as="p" size="2" weight="light">
+              Online via telegram, email, Whatsapp, panggilan telepon.
+            </Text>
+          </Flex>
+
+          <Flex direction="column" gap="3">
+            <Heading mb="2" size="4">
+              Jam Layanan
+            </Heading>
+            {(
+              [
+                {
+                  id: 1005,
+                  day: "Senin",
+                  hour: "07:30 a.m. - 8:00 p.m.",
+                },
+                {
+                  id: 1004,
+                  day: "Selasa",
+                  hour: "07:30 a.m. - 8:00 p.m.",
+                },
+                {
+                  id: 1003,
+                  day: "Rabu",
+                  hour: "07:30 a.m. - 8:00 p.m.",
+                },
+                {
+                  id: 1002,
+                  day: "Kamis",
+                  hour: "07:30 a.m. - 8:00 p.m.",
+                },
+                {
+                  id: 1001,
+                  day: "Jum'at",
+                  hour: "07:30 a.m. - 8:00 p.m.",
+                },
+                {
+                  id: 1000,
+                  day: "Sabtu",
+                  hour: "07:30 a.m. - 8:00 p.m.",
+                },
+              ] as const
+            ).map((order) => (
+              <Grid columns="3" key={order.id}>
+                <Box>
+                  <Text size="2">{order.day}</Text>
+                </Box>
+
+                <Box style={{ gridColumn: "2 / -1" }}>
+                  <Text size="2" align="right">
+                    {order.hour}
+                  </Text>
+                </Box>
+              </Grid>
+            ))}
+          </Flex>
+          <Flex direction="column" gap="3">
+            <Heading mb="2" size="4">
+              Bagaimana kami membantu anda?
+            </Heading>
+            <Text size="2">
+              Paket ini memberikan akses prioritas ke kami melalui telepon,
+              telegram, Whatsapp, Gmail, 12 jam sehari, 7 hari seminggu.
+            </Text>
+            {/* <Text size="2">
+              Diskusikan pajak anda, membantu anda untuk mengajukan permohonan
+              pajak, membantu wajib pajak memperolah gambaran umum kewajiban
+              pajak, mendeteksi transaksi yang dapat menimbulkan eksposure pajak
+              maksimal, serta melakukan pencegahan dari risiko pajak yang lebih
+              besar.
+            </Text> */}
+            <Text size="2">
+              Memungkinkan Anda mengelola sumber daya dengan lebih efisien,
+              lebih fokus pada bisnis Anda, dan mengurangi biaya pelatihan
+              karyawan.
+            </Text>
+            {/* <ul>
+                  {[
+                    {
+                      id: 1004,
+                      name: "Meminimalkan kewajiban pajak mereka dalam kerangka peraturan yang ada.",
+                    },
+                    {
+                      id: 1005,
+                      name: "Melakukan pencegahan kelebihan pembayaran pajak.",
+                    },
+                    {
+                      id: 1006,
+                      name: "Menghindari risiko denda pajak terhadap kesalahan atau keterlambatan penyetoran pajak.",
+                    },
+                    {
+                      id: 1007,
+                      name: "Menghindari atau meminimalkan litigasi pajak yang berbiaya tinggi.",
+                    },
+                  ].map((fasilitas) => (
+                    <li key={fasilitas.id}>
+                      <Text size="2" ml="0">
+                        {fasilitas.name}
+                      </Text>
+                    </li>
+                  ))}
+                </ul> */}
+          </Flex>
+        </Grid>
+      </Container>
+    </Flex>
+  );
+}
+function Row02() {
+  return (
+    <Flex align="center" direction="column" gap="3" py="9">
+      <Container size="3" px="5">
+        <Flex gap="3" direction="column" style={{ maxWidth: "60ch" }}>
+          <Heading
+            mx="auto"
+            align={{ initial: "center", md: "center" }}
+            as="h2"
+            size={{ initial: "8", sm: "8", md: "9" }}
+          >
+            Kami tidak merubah bisnis Anda, solusi perpajakan kami yang akan
+            menyesuaikan.
+          </Heading>
+          <Text
+            size="5"
+            mx="auto"
+            align={{ initial: "center", md: "center" }}
+            // style={{ maxWidth: "30ch" }}
+          >
+            Diskusikan pajak anda, membantu anda untuk mengajukan permohonan
+            pajak, membantu wajib pajak memperolah gambaran umum kewajiban
+            pajak, mendeteksi transaksi yang dapat menimbulkan eksposure pajak
+            maksimal, serta melakukan pencegahan dari risiko pajak yang lebih
+            besar.
+          </Text>
+        </Flex>
+      </Container>
+    </Flex>
+  );
+}
+
+function Pricing() {
+  return (
+    <>
+      <Flex
+        align="center"
+        direction="column"
+        gap="3"
+        py="6"
+        style={{ backgroundColor: "var(--gray-a2)" }}
+      >
+        <Container px="5">
+        <Flex gap="3" direction="column" style={{ maxWidth: "50rem" }}>
+          {/* <Heading as="h3" size="6" trim="start" mb="2">
+            Pricing
+          </Heading>
+
+          <Text as="p" size="2" mb="5" color="gray">
+            No credit card required. Every plan includes a 30-day trial of all
+            Pro features.
+          </Text> */}
+
+          <Grid
+            mt="8"
+            columns={{ initial: "1", xs: "2" }}
+            gap={{ initial: "2", xs: "8" }}
+          >
+            <Flex direction="column">
+              <Text weight="bold" size="4" mb="1">
+                Paket 3 Bulan
+              </Text>
+              {/* <Text color="gray" size="2" mb="4">
+                3 team members
+              </Text> */}
+              <Text size="8" mb="4" style={{fontWeight:"bolder"}}>
+              Rp 5.000.000
+              </Text>
+
+              <Flex direction="column" gap="2">
+                
+              <Text as="span"
+                  size="3" color="gray"  style={{height: "5rem"}}
+                >
+                  Dapatkan 6 bulan Apple Music gratis dengan pembelian perangkat audio yang memenuhi syarat.
+                </Text>
+                <Box><Button size="3" mt="3" radius="full" variant="solid" color="red">
+                  Berlangganan 3 bulan
+                </Button></Box>
+                
+              </Flex>
+            </Flex>
+
+            <Flex direction="column">
+              <Text weight="bold" size="4" mb="1">
+                add-on SPT Tahunan PPh badan
+              </Text>
+              {/* <Text color="gray" size="2" mb="4">
+                3 team members
+              </Text> */}
+              <Text weight="bold" size="8" mb="4">
+              Rp 3.000.000
+              </Text>
+
+              <Flex direction="column" gap="2">
+                
+              <Text as="span"
+                  size="3" color="gray"  style={{height: "5rem"}}
+                >
+                  Untuk 1 tahun pajak, unlimited pembetulan.
+                </Text>
+                <Box><Button size="3" mt="3" radius="full" variant="solid" color="grass">
+                  Hubungi Kami
+                </Button></Box>
+              </Flex>
+            </Flex>
+          </Grid>
+          </Flex>
+        </Container>
+      </Flex>
+    </>
+  );
+}
+
+// sebagai contoh saja
+// export const Marker = (props: React.ComponentPropsWithoutRef<typeof Flex>) => (
+//   <Flex
+//     align="center"
+//     justify="center"
+//     width="4"
+//     height="4"
+//     {...props}
+//     style={{
+//       color: "var(--teal-11)",
+//       backgroundColor: "var(--teal-a4)",
+//       borderRadius: "100%",
+//       ...props.style,
+//     }}
+//   />
+// );
